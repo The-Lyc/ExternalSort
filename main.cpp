@@ -11,8 +11,6 @@
 
 #define TotalMemory 65536
 
-const int64_t zeroNumber = 3472328296227680304;
-
 void SplitFileToBlock(std::string fileName, int numThreads)
 {
     int memoryOfEachThread = TotalMemory / numThreads;
@@ -28,16 +26,18 @@ void ReadFileBlock(std::string& fileName, size_t start, size_t offset)
     std::vector<char> buffer(offset);
 
     inFile.read(buffer.data(),buffer.size());
-    
+
+    // 打开存储每个小block的文件
+    std::ofstream blockFile(std::to_string(start) + ".txt");
+
     // 将读取到的字节按 64 位整数解释
     for (size_t i = 0; i < buffer.size(); i += 8) {
         int64_t value;
         // 将 8 个字节转换为 int64_t
         std::memcpy(&value, &buffer[i], 8);
-        std::cout << value << std::flush;
+        blockFile.write(reinterpret_cast<const char*>(&value), sizeof(value));
+        blockFile.flush();
     }
-
-    std::cout<<std::endl;
 }
 
 int main()
