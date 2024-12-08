@@ -7,6 +7,8 @@
 #include <atomic>
 #include <future>
 
+#include "sort_option.hpp"
+
 #define SPLIT_TASK 1
 #define MERGE_TASK 2
 #define COMMAND_TASK 3
@@ -61,12 +63,10 @@ private:
     std::vector<std::thread> executors;
     std::atomic<bool> stop = false;
     std::mutex coutMutex;
+    SortOption sortOption;
 
-// void SplitFileToBlock(std::string fileName, int numThreads)
-// {
-//     int memoryOfEachThread = TotalMemory / numThreads;
-//     //TODO:submit read task to task queue of thread pool
-// }
+    std::queue<std::string> fileQueue;
+    std::mutex fileQueueMutex;
 
     void spin() {
         while (true)
@@ -85,13 +85,15 @@ private:
                 break; // 线程退出
             } else if (task.taskType == SPLIT_TASK)
             {
-                std::lock_guard<std::mutex> lock(coutMutex);
-                std::cout << std::this_thread::get_id() << "fileSrc | start | offset : " << task.fileSrc << "|" << task.start << "|" << task.offset << std::endl;
+                std::string blockFile = sortOption.ReadFileBlock(task.fileSrc, task.start, task.offset);
+                std::lock_guard<std::mutex> lock(fileQueueMutex);
+                fileQueue.emplace(blockFile);
             } else if (task.taskType == MERGE_TASK)
             {
-                std::lock_guard<std::mutex> lock(coutMutex);
-                std::cout << std::this_thread::get_id() << "fileSrc | fileAnother | fileDest : " << task.fileSrc << "|" << task.fileAnother << "|" <<task.fileDest << std::endl;
-            }
+                std::string mergeFile = sortOption.TwoWayMerge(task.fileSrc, task.fileAnother , task.fileDest);
+                std::lock_guard<std::mutex> lock(fileQueueMutex);
+                fileQueue.emplace(task.fileDest);
+            }   
         }
     }
 
@@ -101,6 +103,11 @@ public:
     ~ThreadPool(){};
 
     void enqueue(Task task);
+
+    // 检查fileQueue里是不是还剩2个文件，是的话就返回文件的总大小给manager
+    size_t checkFrontTwoFile(std::string &, std::string &);
+
+    bool getFrontTwoFile(std::string &, std::string &);
 
     void stopPool();
 
