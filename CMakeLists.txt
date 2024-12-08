@@ -1,0 +1,2 @@
+PROJECT (EXETERNAL_SORT_USING_THREAD_POOL)
+add_subdirectory(src bin)
