@@ -10,9 +10,16 @@ private:
     size_t blockSize;
     size_t totalSize;
     size_t fileIndex = 0;
+
+    bool casMode;
+
 public:
-    ThreadPoolManager(int num, std::string fileSrc, std::string fileDest) : threadPool(num), fileSrc(fileSrc), fileDest(fileDest) {blockSize=TotalMemory/num;}
-    ~ThreadPoolManager(){};
+    ThreadPoolManager(int num, bool casMode, std::string fileSrc, std::string fileDest) : threadPool(num, casMode), fileSrc(fileSrc), fileDest(fileDest)
+    {
+        blockSize = TotalMemory / num;
+        casMode = casMode;
+    }
+    ~ThreadPoolManager() {};
 
     void split();
     void merge();

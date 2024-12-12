@@ -1,3 +1,3 @@
 include_directories(../include)
-set(SOURCE generate.cpp ../src/sort_option.cpp)
-add_executable(generate ${SOURCE})
+set(SOURCE cas_test.cpp) 
+add_executable(cas_test ${SOURCE})

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -16,11 +18,10 @@
 class SortOption
 {
 public:
-    SortOption(){};
-    ~SortOption(){};
+    SortOption() {};
+    ~SortOption() {};
 
-    std::string ReadFileBlock(std::string& fileName, size_t start, size_t offset);
+    std::string ReadFileBlock(std::string &fileName, size_t start, size_t offset);
     std::string TwoWayMerge(std::string fileA, std::string fileB, std::string fileOutput);
     int64_t GenerateRandomInt64();
 };
-

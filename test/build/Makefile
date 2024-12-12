@@ -117,47 +117,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named generate
+# Target rules for targets named cas_test
 
 # Build rule for target.
-generate: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 generate
-.PHONY : generate
+cas_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cas_test
+.PHONY : cas_test
 
 # fast build rule for target.
-generate/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/build
-.PHONY : generate/fast
+cas_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cas_test.dir/build.make CMakeFiles/cas_test.dir/build
+.PHONY : cas_test/fast
 
 # target to build an object file
-generate.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/generate.o
-.PHONY : generate.o
+cas_test.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cas_test.dir/build.make CMakeFiles/cas_test.dir/cas_test.o
+.PHONY : cas_test.o
 
 # target to preprocess a source file
-generate.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/generate.i
-.PHONY : generate.i
+cas_test.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cas_test.dir/build.make CMakeFiles/cas_test.dir/cas_test.i
+.PHONY : cas_test.i
 
 # target to generate assembly for a file
-generate.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/generate.s
-.PHONY : generate.s
-
-# target to build an object file
-home/shy/cpp_ws/ExternalSort/src/sort_option.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/home/shy/cpp_ws/ExternalSort/src/sort_option.o
-.PHONY : home/shy/cpp_ws/ExternalSort/src/sort_option.o
-
-# target to preprocess a source file
-home/shy/cpp_ws/ExternalSort/src/sort_option.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/home/shy/cpp_ws/ExternalSort/src/sort_option.i
-.PHONY : home/shy/cpp_ws/ExternalSort/src/sort_option.i
-
-# target to generate assembly for a file
-home/shy/cpp_ws/ExternalSort/src/sort_option.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/home/shy/cpp_ws/ExternalSort/src/sort_option.s
-.PHONY : home/shy/cpp_ws/ExternalSort/src/sort_option.s
+cas_test.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cas_test.dir/build.make CMakeFiles/cas_test.dir/cas_test.s
+.PHONY : cas_test.s
 
 # Help Target
 help:
@@ -167,13 +152,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... generate"
-	@echo "... generate.o"
-	@echo "... generate.i"
-	@echo "... generate.s"
-	@echo "... home/shy/cpp_ws/ExternalSort/src/sort_option.o"
-	@echo "... home/shy/cpp_ws/ExternalSort/src/sort_option.i"
-	@echo "... home/shy/cpp_ws/ExternalSort/src/sort_option.s"
+	@echo "... cas_test"
+	@echo "... cas_test.o"
+	@echo "... cas_test.i"
+	@echo "... cas_test.s"
 .PHONY : help
 
 

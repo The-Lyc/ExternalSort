@@ -2,7 +2,7 @@
 
 int main()
 {
-    ThreadPoolManager threadPoolManager(4, "input.txt", "output.txt");
+    ThreadPoolManager threadPoolManager(4, true, "input.txt", "output.txt");
     threadPoolManager.split();
     threadPoolManager.merge();
 

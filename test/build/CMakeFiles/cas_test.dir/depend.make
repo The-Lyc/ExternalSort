@@ -1,2 +1,2 @@
-# Empty dependencies file for generate.
+# Empty dependencies file for cas_test.
 # This may be replaced when dependencies are built.

@@ -2,6 +2,7 @@ bin/CMakeFiles/external_sort.dir/thread_pool.o: \
  /home/shy/cpp_ws/ExternalSort/src/thread_pool.cpp \
  /usr/include/stdc-predef.h \
  /home/shy/cpp_ws/ExternalSort/include/thread_pool.hpp \
+ /home/shy/cpp_ws/ExternalSort/include/task.hpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -234,4 +235,5 @@ bin/CMakeFiles/external_sort.dir/thread_pool.o: \
  /usr/include/c++/13/bits/stl_numeric.h \
  /usr/include/c++/13/pstl/glue_numeric_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/algorithm \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /home/shy/cpp_ws/ExternalSort/include/cas_queue.hpp
