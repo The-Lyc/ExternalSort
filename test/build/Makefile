@@ -117,32 +117,75 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cas_test
+# Target rules for targets named io_test
 
 # Build rule for target.
-cas_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cas_test
-.PHONY : cas_test
+io_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 io_test
+.PHONY : io_test
 
 # fast build rule for target.
-cas_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cas_test.dir/build.make CMakeFiles/cas_test.dir/build
-.PHONY : cas_test/fast
+io_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/build
+.PHONY : io_test/fast
+
+#=============================================================================
+# Target rules for targets named generate
+
+# Build rule for target.
+generate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 generate
+.PHONY : generate
+
+# fast build rule for target.
+generate/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/build
+.PHONY : generate/fast
 
 # target to build an object file
-cas_test.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cas_test.dir/build.make CMakeFiles/cas_test.dir/cas_test.o
-.PHONY : cas_test.o
+generate.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/generate.o
+.PHONY : generate.o
 
 # target to preprocess a source file
-cas_test.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cas_test.dir/build.make CMakeFiles/cas_test.dir/cas_test.i
-.PHONY : cas_test.i
+generate.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/generate.i
+.PHONY : generate.i
 
 # target to generate assembly for a file
-cas_test.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cas_test.dir/build.make CMakeFiles/cas_test.dir/cas_test.s
-.PHONY : cas_test.s
+generate.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/generate.s
+.PHONY : generate.s
+
+# target to build an object file
+home/shy/cpp_ws/ExternalSort/src/sort_option.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/home/shy/cpp_ws/ExternalSort/src/sort_option.o
+.PHONY : home/shy/cpp_ws/ExternalSort/src/sort_option.o
+
+# target to preprocess a source file
+home/shy/cpp_ws/ExternalSort/src/sort_option.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/home/shy/cpp_ws/ExternalSort/src/sort_option.i
+.PHONY : home/shy/cpp_ws/ExternalSort/src/sort_option.i
+
+# target to generate assembly for a file
+home/shy/cpp_ws/ExternalSort/src/sort_option.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/home/shy/cpp_ws/ExternalSort/src/sort_option.s
+.PHONY : home/shy/cpp_ws/ExternalSort/src/sort_option.s
+
+# target to build an object file
+io_test.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/io_test.o
+.PHONY : io_test.o
+
+# target to preprocess a source file
+io_test.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/io_test.i
+.PHONY : io_test.i
+
+# target to generate assembly for a file
+io_test.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/io_test.s
+.PHONY : io_test.s
 
 # Help Target
 help:
@@ -152,10 +195,17 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... cas_test"
-	@echo "... cas_test.o"
-	@echo "... cas_test.i"
-	@echo "... cas_test.s"
+	@echo "... generate"
+	@echo "... io_test"
+	@echo "... generate.o"
+	@echo "... generate.i"
+	@echo "... generate.s"
+	@echo "... home/shy/cpp_ws/ExternalSort/src/sort_option.o"
+	@echo "... home/shy/cpp_ws/ExternalSort/src/sort_option.i"
+	@echo "... home/shy/cpp_ws/ExternalSort/src/sort_option.s"
+	@echo "... io_test.o"
+	@echo "... io_test.i"
+	@echo "... io_test.s"
 .PHONY : help
 
 
